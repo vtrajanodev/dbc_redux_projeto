@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { Menu } from "./Menu"
-import logo from '../assets/github3.png'
+import  Menu  from "./Menu"
+import logo from '../assets/github1.png'
 import styles from '../styles/header.module.scss'
 
 export const Header = () => {

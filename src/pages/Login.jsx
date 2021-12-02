@@ -1,11 +1,11 @@
 import { Formik, Field, Form } from 'formik';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as LoginActions from '../store/actions/loginReducer'
+import { handleLogin } from '../store/actions/authActions';
 import styles from '../styles/login.module.scss'
 
-const Login = () => {
+const Login = ({auth, dispatch}) => {
 
+  console.log(auth)
   return (
     <div className="container">
       <div className={styles.loginAria}>
@@ -18,8 +18,7 @@ const Login = () => {
             values,
             { setSubmitting }
           ) => {
-            console.log(values)
-            LoginActions.handleLogin(values)
+            handleLogin(values, dispatch)
             setSubmitting(false);
           }}
         >
@@ -41,11 +40,7 @@ const Login = () => {
 }
 
 const mapStateToProps = state => ({
-  auth: state.loginReducer.auth
+  auth: state.authReducer.auth
 })
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators(LoginActions, dispatch)
-)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default  connect((mapStateToProps)) (Login);
