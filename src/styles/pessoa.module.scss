@@ -1,0 +1,56 @@
+.pessoaContainer {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.pessoaLista {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 1rem 0
+}
+
+.card {
+  width: 565px;
+  margin: 1rem 1rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: .3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    outline: 1px solid rgb(0, 0, 0);
+  }
+
+  p{
+    margin-top: 1rem;
+  }
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+ 
+  button {
+    width: 120px;
+    padding: 1rem;
+    background-color: #cecece;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-weight: bold;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    & + button {
+      margin-top: 1rem;
+    }
+  }
+}

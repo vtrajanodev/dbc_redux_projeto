@@ -1,0 +1,50 @@
+.loginAria {
+  height: 300px;
+  width: 500px;
+  margin: 10rem auto;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.25rem; 
+
+  &:hover {
+    outline: 2px solid black;
+  }
+}
+
+.loginFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+
+  label {
+    margin-bottom: .5rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    margin-bottom: 1rem;
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+  }
+
+  button {
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    background-color: #ccc;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+
+}
