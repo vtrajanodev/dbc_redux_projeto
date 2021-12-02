@@ -5,6 +5,7 @@ const handleLogin = async (user, dispatch) => {
   const {data} = await api.post('/auth', user)
   const token = data
   api.defaults.headers.common['Authorization'] = token
+  window.location.href = '/pessoa'
   console.log(token)
 
   if (token) {
