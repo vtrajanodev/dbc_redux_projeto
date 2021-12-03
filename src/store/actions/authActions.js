@@ -2,10 +2,9 @@ import { api } from "../../services/api"
 
 
 const handleLogin = async (user, dispatch) => {
-  const {data} = await api.post('/auth', user)
+  const { data } = await api.post('/auth', user)
   const token = data
   api.defaults.headers.common['Authorization'] = token
-  window.location.href = '/pessoa'
   console.log(token)
 
   if (token) {
@@ -17,7 +16,7 @@ const handleLogin = async (user, dispatch) => {
       loading: false
     }
     dispatch(logado)
-  }else {
+  } else {
     alert('Erro no token')
   }
 }
@@ -32,4 +31,4 @@ const handleLogout = async (auth, dispatch) => {
   dispatch(deslogado)
 }
 
-export {handleLogin, handleLogout}
+export { handleLogin, handleLogout }
