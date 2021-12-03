@@ -1,7 +1,8 @@
+import { connect } from 'react-redux'
 import { useNavigate } from 'react-router'
 import styles from '../styles/home.module.scss'
 
-export const Home = () => {
+const Home = ({ auth, dispatch }) => {
   const navigate = useNavigate()
 
   return (
@@ -21,10 +22,22 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className={styles.homeDuvida}>
+      {!auth.token ?
+        <div className={styles.homeDuvida}>
           <p>Tu duvidas ?</p>
           <button onClick={() => navigate('/login')}>Faça login e veja :)</button>
-      </div>
+        </div>
+        :
+        <div className={styles.homeDuvida}>
+          <button onClick={() =>   navigate('/dashboard')}>Voltar para o site</button>
+        </div>}
     </>
   )
 }
+
+
+const mapStateToProps = state => ({
+  auth: state.authReducer.auth
+})
+
+export default connect(mapStateToProps)(Home)

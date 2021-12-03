@@ -4,7 +4,6 @@ import { handleLogout } from "../store/actions/authActions"
 
 const Menu = ({auth, dispatch}) => {
   
-  
   return (
     <nav>
       <ul>
@@ -13,16 +12,10 @@ const Menu = ({auth, dispatch}) => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/pessoa">Pessoa</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/cadastro"> Cadastro</Link>
-          </li>
-          <li>
-            <Link to="/endereco">Endereço</Link>
-          </li>
-          <li>
-            <Link to="/login" onClick={() => handleLogout(auth, dispatch)}>Logout</Link>
+            <Link to="/" onClick={() => handleLogout(auth, dispatch)}>Logout</Link>
           </li>
         </>
       </ul>

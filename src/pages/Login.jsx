@@ -1,9 +1,12 @@
 import { Formik, Field, Form } from 'formik';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { handleLogin } from '../store/actions/authActions';
 import styles from '../styles/login.module.scss'
 
 const Login = ({auth, dispatch}) => {
+
+  const navigate = useNavigate()
 
   console.log(auth)
   return (
@@ -14,11 +17,12 @@ const Login = ({auth, dispatch}) => {
             usuario: '',
             senha: '',
           }}
-          onSubmit={(
+          onSubmit={ async (
             values,
             { setSubmitting }
           ) => {
-            handleLogin(values, dispatch)
+            await handleLogin(values, dispatch)
+            navigate('/dashboard')
             setSubmitting(false);
           }}
         >

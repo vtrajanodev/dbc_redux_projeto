@@ -1,8 +1,12 @@
+import styles from '../styles/pessoa.module.scss'
 
-export const Pessoa = () => {
+const Pessoa = () => {
   return (
-    <div>
-      <h1>Pessoa</h1>
+    <div className={styles.pessoaContainer}>
+      <h1>Listagem de pessoa</h1>
     </div>
   )
 }
+
+export default Pessoa
+
