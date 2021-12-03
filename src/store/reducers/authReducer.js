@@ -2,7 +2,8 @@ const INITIAL_STATE = {
   auth: {
     token: '',
     auth: false,
-    loading: true
+    loading: true,
+    headers: ''
   }
 }
 

@@ -5,6 +5,7 @@ import styles from '../styles/home.module.scss'
 const Home = ({ auth, dispatch }) => {
   const navigate = useNavigate()
 
+
   return (
     <>
       <div className={styles.container}>

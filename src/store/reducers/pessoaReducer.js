@@ -1,27 +1,14 @@
 const INITIAL_STATE = {
-  pessoa: {
-    cpf: '',
-    dataNascimento: '',
-    email: '',
-    idPessoa: 0,
-    nome: ''
-  }
+  pessoa: []
 }
 
 const pessoaReducer = (state = INITIAL_STATE, action) => {
 
   if (action.type === 'SET_PESSOA') {
     return {
-      pessoa: {
-        cpf: '',
-        dataNascimento: '',
-        email: '',
-        idPessoa: 0,
-        nome: ''
-      }
+      pessoa: action.data
     }
   }
-
   return state
 }
 

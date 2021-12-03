@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard"
 import Pessoa from "./pages/Pessoa"
 
 
-const LinkRoutes = ({ auth, dispatch }) => {
+const LinkRoutes = ({ dispatch }) => {
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
@@ -18,7 +18,7 @@ const LinkRoutes = ({ auth, dispatch }) => {
         type: 'SET_LOGIN',
         token: localStorage.getItem('token'),
         auth: true,
-        loading: false
+        loading: false,
       }
       dispatch(logado)
     }
