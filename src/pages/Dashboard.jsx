@@ -19,13 +19,13 @@ const Dashboard = () => {
         <div className={styles.dashboardMainFlex}>
           {category === 'cadastros' && (
             <>
-              <Link to="/pessoa">
+              <Link to="/cadastro-pessoa">
                 <div>
                   Cadastrar pessoa
                 </div>
               </Link>
 
-              <Link to="/endereco">
+              <Link to="/cadastro-endereco">
                 <div>
                   Cadastrar endereço
                 </div>

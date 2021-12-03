@@ -17,15 +17,15 @@ const Pessoa = ({ pessoa, dispatch }) => {
       <h1>Listagem de pessoa</h1>
 
       <div className={styles.pessoaLista}>
-        <ul>
-          {pessoa.map(p => (
-            <li key={p.id}>
-              <div>
-                <h3>{p.nome}</h3>
-              </div>
-            </li>
-          ))}
-        </ul>
+
+        {pessoa.map(p => (
+          <div className={styles.card}>
+            <div>
+              <h3>{p.nome}</h3>
+              <p>{p.email}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
