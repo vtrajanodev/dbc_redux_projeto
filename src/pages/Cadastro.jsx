@@ -1,11 +1,18 @@
 import { Formik, Form, Field } from 'formik'
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router'
 import * as Yup from 'yup';
+import { api } from '../services/api';
+import { handleCreatePessoa, handleSaveEditChanges } from '../store/actions/createEditDeletePessoa';
 import styles from '../styles/cadastro.module.scss'
 
 
-const Cadastro = () => {
+const Cadastro = ({ isEditing, pessoaEmEdicao, dispatch }) => {
 
+  useEffect(() => {
+    api.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+  }, [])
 
   const navigate = useNavigate()
 
@@ -28,23 +35,28 @@ const Cadastro = () => {
       .required('Obrigatório')
   });
 
-  return (
-    <>  
-      <div className={styles.cadastro}>
+  console.log(isEditing)
 
-        <h1>Cadastro</h1>
+  return (
+    <>
+      <div className={styles.cadastro}>
+        <h1>{isEditing ? 'Atualização de cadastro' : 'Cadastro'}</h1>
         <Formik
           initialValues={{
-            nome: '',
-            dataNascimento: '',
-            cpf: '',
-            email: ''
+            nome: isEditing ? pessoaEmEdicao.nome : '',
+            dataNascimento: isEditing ? pessoaEmEdicao.dataNascimento : '',
+            cpf: isEditing ? pessoaEmEdicao.cpf : '',
+            email: isEditing ? pessoaEmEdicao.email : ''
           }}
           validationSchema={cadastroSchema}
-          onSubmit={(
+          onSubmit={async (
             values,
             { setSubmitting }
           ) => {
+            !isEditing ? 
+            await handleCreatePessoa(values, dispatch)
+            :
+            await handleSaveEditChanges(values, pessoaEmEdicao.idPessoa, dispatch)
             setSubmitting(false);
           }}
         >
@@ -85,7 +97,7 @@ const Cadastro = () => {
 
                 <div className={styles.botoes}>
                   <button type="button" onClick={() => navigate('/pessoa')}>Voltar</button>
-                  <button type="submit">Cadastrar</button>
+                  <button type="submit">{isEditing ? 'Atualizar cadastro' : 'Cadastrar'}</button>
                 </div>
               </div>
             </Form>
@@ -96,4 +108,10 @@ const Cadastro = () => {
   )
 }
 
-export default Cadastro
+const mapStateToProps = (state => ({
+  pessoa: state.pessoaReducer.pessoa,
+  pessoaEmEdicao: state.pessoaReducer.pessoaEmEdicao,
+  isEditing: state.pessoaReducer.isEditing
+}))
+
+export default connect(mapStateToProps)(Cadastro)
