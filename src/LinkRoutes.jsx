@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Pessoa from "./pages/Pessoa"
+import Cadastro from "./pages/Cadastro"
 
 
 const LinkRoutes = ({ dispatch }) => {
@@ -33,6 +34,7 @@ const LinkRoutes = ({ dispatch }) => {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/pessoa" element={<Pessoa />} />
+          <Route path="/cadastro-pessoa" element={<Cadastro />} />
         </Routes>
       </BrowserRouter>
     </>
