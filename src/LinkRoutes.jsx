@@ -8,9 +8,10 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Pessoa from "./pages/Pessoa"
 import Cadastro from "./pages/Cadastro"
+import NotFound from './components/NotFound'
 
 
-const LinkRoutes = ({ dispatch }) => {
+const LinkRoutes = ({ auth, dispatch }) => {
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
@@ -29,13 +30,21 @@ const LinkRoutes = ({ dispatch }) => {
     <>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/pessoa" element={<Pessoa />} />
-          <Route path="/cadastro-pessoa" element={<Cadastro />} />
-        </Routes>
+        {auth ?
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/pessoa" element={<Pessoa />} />
+            <Route path="/cadastro-pessoa" element={<Cadastro />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          :
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        }
+
       </BrowserRouter>
     </>
   )
