@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router';
 import { handleLogin } from '../store/actions/authActions';
 import styles from '../styles/login.module.scss'
 
-const Login = ({auth, dispatch}) => {
+const Login = ({dispatch}) => {
 
   const navigate = useNavigate()
 
-  console.log(auth)
   return (
     <div className="container">
       <div className={styles.loginAria}>

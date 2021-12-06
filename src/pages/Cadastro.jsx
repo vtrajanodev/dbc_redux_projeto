@@ -35,8 +35,6 @@ const Cadastro = ({ isEditing, pessoaEmEdicao, dispatch }) => {
       .required('Obrigatório')
   });
 
-  console.log(isEditing)
-
   return (
     <>
       <div className={styles.cadastro}>

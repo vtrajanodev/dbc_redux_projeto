@@ -4,7 +4,7 @@ import logo from '../assets/github1.png'
 import styles from '../styles/header.module.scss'
 import { connect } from "react-redux"
 
-const Header = ({ auth, dispatch }) => {
+const Header = ({ auth }) => {
 
   let resolved = useResolvedPath('/')
   let match = useMatch({ path: resolved.pathname, end: true })
@@ -13,7 +13,7 @@ const Header = ({ auth, dispatch }) => {
     <>
       {(auth.token && !match) &&
         <header className={styles.headerFlex}>
-          <Link to="/login">
+          <Link to="/ ">
             <img src={logo} alt="logo icon" />
           </Link>
           <Menu />

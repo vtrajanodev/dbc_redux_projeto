@@ -5,8 +5,7 @@ const handleLogin = async (user, dispatch) => {
   const { data } = await api.post('/auth', user)
   const token = data
   
-  console.log(token)
-
+  
   if (token) {
     localStorage.setItem('token', token);
     

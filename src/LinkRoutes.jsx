@@ -10,7 +10,6 @@ import Pessoa from "./pages/Pessoa"
 import Cadastro from "./pages/Cadastro"
 import NotFound from './components/NotFound'
 
-
 const LinkRoutes = ({ auth, dispatch }) => {
 
   useEffect(() => {
